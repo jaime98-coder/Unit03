@@ -2,7 +2,7 @@ package arraysexercises;
 
 import java.util.Scanner;
 
-public class Exerciose02 {
+public class Exercise02 {
 
 	public static void main(String[] args) {
 		// Creo una tabla con 5 de longitud (indíces del 0 al 4)
