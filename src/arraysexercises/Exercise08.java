@@ -49,7 +49,6 @@ public class Exercise08 {
 		// Imprimo el mensaje final indicando el nº buscado, y el nº de veces que
 		// aparece en mi array (tabla)
 		System.out.println("El número " + numBuscado + " aparece " + numerosEncontrados + " veces en el array.");
-
 		// Cierro el Scanner
 		sc.close();
 
