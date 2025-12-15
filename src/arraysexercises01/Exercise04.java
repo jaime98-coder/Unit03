@@ -1,4 +1,4 @@
-package arraysexercises;
+package arraysexercises01;
 
 public class Exercise04 {
 
