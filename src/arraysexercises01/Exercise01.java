@@ -12,6 +12,7 @@ public class Exercise01 {
 			System.out.println("Índice "+i+": "+numeros[i]);
 		}
 		
+		
 	}
 
 }
