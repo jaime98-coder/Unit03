@@ -10,7 +10,7 @@ public class Exercise04 {
 	// descendente (de la más alta a la más baja).
 	public static void main(String[] args) {
 		System.out.println("Sistema de Puntuaciones del torneo de ajedrez:");
-		int[] puntuaciones = new int[8];
+		int[] puntuaciones = new int[4];
 		//variable auxiliar
 		
 		Scanner sc = new Scanner(System.in);
@@ -25,10 +25,22 @@ public class Exercise04 {
 			
 			System.out.println("Puntos jugador " + (i + 1) + ": " + puntuaciones[i]);
 		}
+		
 		System.out.println("Tabla de puntos");
-		for (int i=0; i<puntuaciones.length;i++) {
-			
-			System.out.print("Puntos del jugador"+(i+1)+": "+puntuaciones[i]);
+		// Ordenar el array de mayor a menor
+		for (int i = 0; i < puntuaciones.length - 1; i++) {
+			for (int j = i + 1; j < puntuaciones.length; j++) {
+				if (puntuaciones[i] < puntuaciones[j]) {
+					// Intercambiar valores
+					int puntosAux = puntuaciones[i];
+					puntuaciones[i] = puntuaciones[j];
+					puntuaciones[j] = puntosAux;
+				}
+			}
+		}
+		// Mostrar el array ordenado
+		for (int i = 0; i < puntuaciones.length; i++) {
+			System.out.println("Puesto " + (i + 1) + ": " + puntuaciones[i] + " puntos");
 		}
 
 		sc.close();
