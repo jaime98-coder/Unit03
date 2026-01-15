@@ -1,16 +1,27 @@
 package funciones;
 
+import java.util.Scanner;
+
 public class Exercise001 {
 	//	Realiza una función que reciba como parámetro una tabla de enteros y devuelva
 	//	la suma de todos los valores almacenados en la tabla. Prueba el comportamiento
 	//	de la función en un método main.
 
 	public static void main(String[] args) {
-		int[] numeros = { 10, 1, 5 };
-
-		// Llamada a la funcion sumarTabla
-		int sumaTotal = sumarTabla(numeros);
-		System.out.println("Suma total = " + sumaTotal);
+		
+		Scanner sc = new Scanner(System.in);
+		int cantidadNumerosASumar=0;
+		System.out.println("¿Cuantos numeros vas a sumar?");
+		cantidadNumerosASumar = sc.nextInt();
+		int sumaTotal=0;
+		int [] tablaNumeros = new int [cantidadNumerosASumar];
+		System.out.println("Introduce los "+cantidadNumerosASumar+" números: ");
+		for (int i=0; i<tablaNumeros.length; i++) {
+			tablaNumeros[i]=sc.nextInt();
+			
+		}
+		sumaTotal = sumarTabla(tablaNumeros);
+		System.out.println("Suma Total:"+sumaTotal);
 	}
 
 	/**
