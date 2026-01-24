@@ -1,4 +1,4 @@
-package practicaexamen;
+package ejerciciosrepaso;
 
 public class Repaso_Ejercicio003 {
 
