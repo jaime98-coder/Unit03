@@ -16,7 +16,25 @@ public class ModeloExamen002_Arrays {
 				"el dinero no puede comprar la vida", "la verdadera sabiduria esta en reconocer la propia ignorancia" };
 		String fraseReal;
 		String fraseCodificada;
+		boolean estaJuegoActivo = true;
+		// Muestro panel
 		mostrarPanel(abecedario);
+
+		// Desordeno panel
+//		desordenaAbecedario(abecedario);
+
+		// Se da la eleccion de frase aleatoria y se imprime
+		fraseReal = eligeFrase(frases);
+		System.out.println("Frase en juego:");
+		System.out.println(fraseReal);
+
+		// Codificar frase
+		fraseCodificada = codificaFrase(fraseReal, abecedario);
+		System.out.println(fraseCodificada);
+
+		// Comprobar codigo
+		int codigo;
+		int letra;
 
 		sc.close();
 	}
@@ -24,7 +42,10 @@ public class ModeloExamen002_Arrays {
 	public static void mostrarPanel(char[][] abecedario) {
 		for (int i = 0; i < abecedario.length; i++) {
 			for (int j = 0; j < abecedario[i].length; j++) {
-				System.out.print(abecedario[i][j] + ", ");
+				System.out.print(abecedario[i][j]);
+				if (j < (abecedario[i].length - 1)) {
+					System.out.print(", ");
+				}
 			}
 			System.out.println();
 		}
@@ -39,10 +60,7 @@ public class ModeloExamen002_Arrays {
 				int colRandom;
 				colRandom = aleatorio.nextInt(abecedario[0].length);
 
-				char abecedarioAux = abecedario[i][j];
-				
 				abecedario[i][j] = abecedario[filaRandom][colRandom];
-				
 
 			}
 		}
@@ -51,10 +69,43 @@ public class ModeloExamen002_Arrays {
 	public static String eligeFrase(String[] frases) {
 		Random aleatorio = new Random();
 		String fraseAleatoria;
-		for (int i = 0; i < frases.length; i++) {
-			fraseAleatoria = frases[aleatorio.nextInt(0, frases.length)];
+		int posicionAzar = aleatorio.nextInt(frases.length);
+		fraseAleatoria = frases[posicionAzar];
+		return fraseAleatoria;
+
+	}
+
+	public static String codificaFrase(String fraseReal, char[][] abecedario) {
+		String fraseCodificada = "";
+		char letraActual;
+		boolean encontrada;
+		char[] letrasSeparadas = fraseReal.toCharArray();
+
+		for (int i = 0; i < letrasSeparadas.length; i++) {
+			letraActual = letrasSeparadas[i];
+			encontrada = false;
+			if (letraActual == ' ') {
+				fraseCodificada += "  ";
+			} else {
+				for (int j = 0; j < abecedario.length && !encontrada; j++) {
+					for (int k = 0; k < abecedario[j].length && !encontrada; k++) {
+						if (abecedario[j][k] == letraActual) {
+							fraseCodificada += j + "" + k + " ";
+							encontrada = true;
+						}
+
+					}
+				}
+			}
+
 		}
 
+		return fraseCodificada;
+
+	}
+
+	public static boolean compruebaCodigo(int codigo, char letra, char[][] abecedario, String fraseCodificada) {
+	
 	}
 
 }

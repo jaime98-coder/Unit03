@@ -13,36 +13,45 @@ public class Exercise003 {
 		// Map size
 		System.out.println("Introduce the size of the map: ");
 		int mapSize = sc.nextInt();
-		String[] mapArray = new String[mapSize];
+		int[] mapArray = new int[mapSize];
 		int flyPosition;
 		int positionSelected;
-		boolean gameInterruptor = true;
+		boolean isGameActive = true;
 
 		flyPosition = rd.nextInt(0, mapArray.length);
-		while (gameInterruptor) {
+		// almaceno en la posición aleatoria el valor 1, significando esto que ahí está
+		// la mosca FLY
+		mapArray[flyPosition] = 1;
+		while (isGameActive) {
 
 			System.out.println("Select the position where u think the fly is");
 			positionSelected = sc.nextInt();
 			int distanceFromFly;
-			if (positionSelected == flyPosition) {
-				System.out.println("\nThe player wins! Correct position!");
-				System.out.println("Fly position was: " + flyPosition);
-				gameInterruptor = false;
-			} else {
-				distanceFromFly = Math.abs(flyPosition - positionSelected);
-				if (distanceFromFly == 1) {
-					System.out.println("The fly is in a contiguous position");
-					System.out.println("Old fly position: " + flyPosition);
-					System.out.println("The fly changed its position!");
-					int currentPosition = flyPosition;
-					while (flyPosition == currentPosition) {
-						flyPosition = rd.nextInt(0, mapArray.length);
-					}
+			if (positionSelected >= 0 && positionSelected < mapSize) {
+				if (mapArray[positionSelected] == 1) {
+					System.out.println("\nThe player wins! Correct position!");
+					System.out.println("Fly position was: " + flyPosition);
+					isGameActive = false;
 				} else {
-					System.out.println("Keep looking for the fly!");
-					System.out.println("Distance from the fly: " + distanceFromFly);
+					distanceFromFly = Math.abs(flyPosition - positionSelected);
+					if (distanceFromFly == 1) {
+						System.out.println("Close! The fly is in a contiguous position");
+						System.out.println("Old fly position: " + flyPosition);
+						System.out.println("The fly changed its position!");
+						mapArray[flyPosition] = 0;
+						int currentPosition = flyPosition;
+						while (flyPosition == currentPosition) {
+							flyPosition = rd.nextInt(0, mapArray.length);
+						}
+						mapArray[flyPosition] = 1;
+					} else {
+						System.out.println("Keep looking for the fly!");
+						System.out.println("Distance from the fly: " + distanceFromFly);
 
+					}
 				}
+			} else {
+				System.out.println("Invalid position. Please stay inside the map size");
 			}
 
 		}
