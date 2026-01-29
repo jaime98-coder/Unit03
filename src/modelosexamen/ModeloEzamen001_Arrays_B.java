@@ -71,9 +71,7 @@ public class ModeloEzamen001_Arrays_B {
 				} else {
 					// --- TURNO PROGRAMA ---
 					System.out.println("Turno del Programa...");
-					// Simulo una pequeña pausa para que parezca que "piensa" (opcional)
-					try { Thread.sleep(1000); } catch (InterruptedException e) { }
-					
+										
 					mueveFichaAleatoria();
 					
 					// Comprobamos si la máquina ha ganado
