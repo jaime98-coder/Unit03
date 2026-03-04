@@ -116,7 +116,7 @@ public class ModeloExamenProfesor002_Gem {
 
 				tablaPosicionesAuxiliar[contadorApariciones] = posicionInicialTemporal;
 				contadorApariciones++;
-				// Se pone a 0 el indiceMensaje. Así mi programa estará listo para empezar a
+				// Se pone a 0 el indiceFirmaVirus. Así mi programa estará listo para empezar a
 				// buscar la siguiente aparición de la palabra en las letras que quedan del
 				// texto
 				indiceFirmaVirus = 0;
