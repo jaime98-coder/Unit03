@@ -27,7 +27,7 @@ public class ModeloExamen003_Strings {
 		System.out.println("Introduce tu primera jugada:");
 		jugada=sc.nextLine().toLowerCase();
 		while (intentosRestantes>0 && !jugada.equals(palabraObjetivo)) {
-			System.out.println("Tu jugada actual es: "+ultimoIntento(jugada));
+			System.out.println("Tu jugada actual es: "+ultimoIntento());
 			System.out.println("Introduce tu siguiente jugada:");
 			String nuevoIntento=sc.nextLine().toLowerCase();
 			jugadaValida=compruebaIntento(nuevoIntento);
