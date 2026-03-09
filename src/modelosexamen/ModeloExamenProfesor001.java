@@ -48,7 +48,11 @@ public class ModeloExamenProfesor001 {
 
 		sc.close();
 	}
-
+/**
+ *  Método para normalizar el texto, quitando espacios y poniendo todo en minúscula. Así evitamos problemas de mayúsculas o espacios a la hora de buscar el mensaje oculto.
+ * @param textoLargo
+ * @return String texto sin espacios
+ */
 	public static String textoNormalizado(String textoLargo) {
 		String textoNormalizado;
 		// IMPORTANTE ESTO PARA QUITAR ESPACIOS DE TODOS LADOS

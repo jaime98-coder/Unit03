@@ -45,19 +45,25 @@ public class ModeloExamen001_3ER_2 {
 					movimientoValido = false;
 					System.out.println("Turno del usuario");
 					while (!movimientoValido) {
-						System.out.println("Introduce la fila donde quieres colocar ficha...");
-						filaUsuario = sc.nextInt();
-						System.out.println("Introduce la columna donde quieres colocar ficha...");
-						columnaUsuario = sc.nextInt();
-						// Mientras sea true el método con sus condiciones correctas y la fila y columna
-						// no se salga de los limites del tablero
-						if (filaUsuario >= 0 && filaUsuario < 3 && columnaUsuario >= 0 && columnaUsuario < 3
-								&& usuarioMueveFicha(filaUsuario, columnaUsuario)) {
-							System.out.println("Usuario coloca ficha correctamente");
-							movimientoValido = true;
-							imprimeTablero();
-						} else {
-							System.out.println("Error, introduce una casilla válida");
+						try {
+							System.out.println("Introduce la fila donde quieres colocar ficha...");
+							filaUsuario = sc.nextInt();
+							System.out.println("Introduce la columna donde quieres colocar ficha...");
+							columnaUsuario = sc.nextInt();
+							// Mientras sea true el método con sus condiciones correctas y la fila y columna
+							// no se salga de los limites del tablero
+							if (filaUsuario >= 0 && filaUsuario < 3 && columnaUsuario >= 0 && columnaUsuario < 3
+									&& usuarioMueveFicha(filaUsuario, columnaUsuario)) {
+								System.out.println("Usuario coloca ficha correctamente");
+								movimientoValido = true;
+								imprimeTablero();
+							} else {
+								System.out.println("Error, introduce una casilla válida");
+							}
+						} catch (Exception e) {
+
+							System.out.println("ERROR: ¡Debes introducir números enteros!");
+							sc.nextLine();
 						}
 					}
 					// Sumo 1 al contador de fichas, ya que la ficha se colocó correctamente
