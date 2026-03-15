@@ -8,15 +8,16 @@ public class Exercise02 {
 	public static void main(String[] args) {
 		Random rd = new Random();
 		final int CANTIDAD_NUMEROS = 10;
+		int aleatorioAux;
 		int comprobadorNumeros;
-//		boolean esDistinto;
+		// LinkedHashSet (para que no haya números repetidos)
 		LinkedHashSet<Integer> almacenNumerosAleatorios = new LinkedHashSet<Integer>();
-		for (int i = 0; i < CANTIDAD_NUMEROS; i++) {
-			comprobadorNumeros = rd.nextInt(1, 21);
-			almacenNumerosAleatorios.add(comprobadorNumeros);
-			if (almacenNumerosAleatorios.size() != i) {
-				i--;
-			}
+
+		// Bucle para que hasta que el tamaño del LinkedHashSet no sea igual que la
+		// cantidad de números (10 tamaño del hashset), no pare.
+		while (almacenNumerosAleatorios.size() != CANTIDAD_NUMEROS) {
+			aleatorioAux = rd.nextInt(1, 21);
+			almacenNumerosAleatorios.add(aleatorioAux);
 		}
 		System.out.println(almacenNumerosAleatorios.toString());
 
